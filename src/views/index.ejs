@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Calculator test case</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
 </head>
 <body>
 <div class="container">
     <h1 class="header">Calculator</h1>
-    <a href="/calc?operation=multiply&arg1=10&arg2=4">Multiply example</a>
-    <a href="/calc?operation=minus&arg1=10&arg2=4">Minus example</a>
-    <a href="/calc?operation=add&arg1=10&arg2=4">Add example</a>
-    <a href="/calc?operation=divide&arg1=10&arg2=4">Division example</a>
+    <a href="/v1/calc?operation=multiply&arg1=10&arg2=4">Multiply example</a>
+    <a href="/v1/calc?operation=minus&arg1=10&arg2=4">Minus example</a>
+    <a href="/v1/calc?operation=add&arg1=10&arg2=4">Add example</a>
+    <a href="/v1/calc?operation=divide&arg1=10&arg2=4">divide example</a>
+    <a href="/v2/calc?operation=pow&arg1=10&arg2=4">Power example</a>
+    <form action="/v1/calc" method="GET" target="_blank">
+        <label for="arg1">Argument 1</label> <input type="number" name="arg1" value="0" id="arg1">
+        <label for="arg2">Argument 2</label> <input type="number" name="arg2" value="0" id="arg2">
+        <div class="input-field col s12">
+            <label for="operation">Operation</label>
+            <select name="operation" id="operation">
+                <option label="+" value="add">+</option>
+                <option label="*" value="multiply">*</option>
+                <option label="/" value="divide">/</option>
+                <option label="-" value="minus">-</option>
+            </select>
+        </div>
+        <input type="submit" title="Calculate" value="Calculate">
+    </form>
 </div>
 </body>
 </html>
