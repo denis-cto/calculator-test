@@ -1,11 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import path from "path";
-import CalculateHandler from "./api/v1/calculate/CalculateHandler";
-
-function calculateHandlerV1(params: any) {
-    return new CalculateHandler().handle(params)
-}
+import RouterV1 from "./routes/RouterV1";
 // initialize configuration
 dotenv.config();
 
@@ -21,16 +17,11 @@ app.set( "view engine", "ejs" );
 
 // define a route handler for the default home page
 app.get( "/", ( req, res ) => {
-
     // render the index template
     res.render( "index" );
 } );
 
-app.get( "/calc", ( req, res ) => {
-    const result = calculateHandlerV1(req.query);
-    // render the index template
-    res.json({result});
-} );
+app.use('/v1', RouterV1);
 // start the express server
 app.listen( port, () => {
     // tslint:disable-next-line:no-console

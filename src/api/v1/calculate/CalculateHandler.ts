@@ -4,10 +4,14 @@ export default class CalculateHandler {
     public handle(params: any) {
 
         if (!params.operation || !params.arg1 || !params.arg2) {
-            throw new Error('Wrong parameters for calculation');
+            return 'Wrong parameters for calculation';
         }
-        // @ts-ignore
-        const result =  Calculator[params.operation](params.arg1, params.arg2);
-        return result;
+        try {
+            // @ts-ignore
+            const result = Calculator[params.operation](params.arg1, params.arg2);
+            return result;
+        } catch (e) {
+            return 'Error when calculating'
+        }
     }
 }
