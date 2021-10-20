@@ -1,4 +1,4 @@
-import Calculator from "../../../Calculator";
+import ExtendedCalculator from "../../../ExtendedCalculator";
 
 export default class CalculateHandler {
     public handle(params: any) {
@@ -7,8 +7,7 @@ export default class CalculateHandler {
         }
         try {
             // @ts-ignore
-            return Calculator[params.operation](params.arg1, params.arg2);
-
+            return ExtendedCalculator[params.operation](params.arg1, params.arg2);
         } catch (e) {
             return 'Error when calculating'
         }

@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import path from "path";
 import RouterV1 from "./routes/RouterV1";
+import RouterV2 from "./routes/RouterV2";
 // initialize configuration
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get( "/", ( req, res ) => {
 } );
 
 app.use('/v1', RouterV1);
+app.use('/v2', RouterV2);
 // start the express server
 app.listen( port, () => {
     // tslint:disable-next-line:no-console

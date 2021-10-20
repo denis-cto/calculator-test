@@ -1,12 +1,12 @@
 
 export default class Calculator {
-    private static checkIsFinite(x: any) {
+    protected static checkIsFinite(x: any) {
         if (!isFinite(x)) {
             throw new Error('X is not a number');
         }
     }
 
-    private static convertStringToNumber(x: string | number): number {
+    protected static convertStringToNumber(x: string | number): number {
         if (typeof x === "string") {
             return  parseFloat(x);
         }
